@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: rgb(247, 245, 245);
+}
+
+#navL:hover {
+  color: #ffffff;
+}
+
+.aboutPage {
+  padding-top: 20px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.nav-wrapper {
+  box-shadow: 1px 1px 25px rgb(83, 221, 240);
+}
+
+.input-field input:focus + label {
+  color: #607d8b !important;
+}
+
+.input-field input:focus {
+  border-bottom: 1px solid #607d8b !important;
+  box-shadow: 0 1px 0 0 #607d8b !important;
+}

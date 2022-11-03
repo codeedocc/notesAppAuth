@@ -1,11 +1,11 @@
 import WelcomePage from './pages/WelcomePage'
-import { HashRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import { AboutPage } from './pages/AboutPage'
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <div className="container">
         <Routes>
           <Route path="/notesAppAuth" element={<WelcomePage />} />
@@ -13,7 +13,7 @@ function App() {
           <Route path="/notesAppAuth/homepage/about" element={<AboutPage />} />
         </Routes>
       </div>
-    </Router>
+    </BrowserRouter>
   )
 }
 

@@ -3,4 +3,4 @@
 Пользователь может добавлять, удалять и изменять заметки.
 
 
-**https://codeedocc.github.io/notesAppAuth**
+**https://codeedocc.github.io/notesAppAuth/notesAppAuth/**

@@ -20,7 +20,10 @@ export const AboutPage = () => {
                 <span className="card-title">Социальные сети</span>
               </div>
               <div className="card-content">
-                <p>Проект был создан в рамках обучения React & TypeScript.</p>
+                <p>
+                  В данном проекте реализована база данных с авторизацией при
+                  использовании React.
+                </p>
               </div>
               <div className="card-action">
                 <a

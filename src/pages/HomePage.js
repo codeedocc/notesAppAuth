@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { onAuthStateChanged } from 'firebase/auth'
 import { auth, db } from '../firebaseCfg/firebase.js'
 import { useNavigate } from 'react-router-dom'
@@ -21,6 +21,7 @@ export default function HomePage() {
   const [addAlert, setAddAlert] = useState(false)
   const [removeAlert, setRemoveAlert] = useState(false)
   const [warningAlert, setWarningAlert] = useState(false)
+  const inputRef = useRef(null)
   const navigate = useNavigate()
 
   const onAdd = () => {
@@ -115,6 +116,7 @@ export default function HomePage() {
 
   // update
   const handleUpdate = (todo) => {
+    inputRef.current.focus()
     setIsEdit(true)
     setTodo(todo.todo)
     setTempUidd(todo.uidd)
@@ -162,6 +164,7 @@ export default function HomePage() {
         <div className="wrap">
           <div className="input-field wrap__item">
             <input
+              ref={inputRef}
               placeholder="Добавьте заметку..."
               className="add-edit-input wrap__input"
               value={todo}

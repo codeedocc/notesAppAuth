@@ -4,7 +4,7 @@ import { Alert } from 'antd'
 
 export const AlertMessage = ({ addAlert, removeAlert, warningAlert }) => {
   return (
-    <div style={{ marginTop: '2rem' }}>
+    <div className="alert">
       {addAlert && (
         <Alert
           type="success"

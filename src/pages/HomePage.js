@@ -12,6 +12,7 @@ import CheckIcon from '@mui/icons-material/Check'
 import DoneSharpIcon from '@mui/icons-material/DoneSharp'
 import { Navbar } from '../components/Navbar.js'
 import { AlertMessage } from '../components/AlertMessage.js'
+import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
 export default function HomePage() {
   const [todo, setTodo] = useState('')
@@ -190,33 +191,40 @@ export default function HomePage() {
           </p>
         )}
 
-        {todos.map((todo) => {
-          const classes = ['todo']
-          if (todo.completed) {
-            classes.push('done')
-          }
+        <TransitionGroup>
+          {todos.map((todo) => {
+            const classes = ['todo']
+            if (todo.completed) {
+              classes.push('done')
+            }
 
-          return (
-            <div className={classes.join(' ')} key={todo.uidd}>
-              <DoneSharpIcon
-                fontSize="large"
-                className="change-button"
-                onClick={() => handleChanger(todo.uidd)}
-              />
-              <span>{todo.todo}</span>
-              <EditIcon
-                fontSize="large"
-                onClick={() => handleUpdate(todo)}
-                className="edit-button"
-              />
-              <DeleteIcon
-                fontSize="large"
-                onClick={() => handleDelete(todo.uidd)}
-                className="delete-button"
-              />
-            </div>
-          )
-        })}
+            return (
+              <CSSTransition key={todo.uidd} classNames={'note'} timeout={500}>
+                <div className={classes.join(' ')}>
+                  <DoneSharpIcon
+                    fontSize="large"
+                    className="change-button"
+                    onClick={() => handleChanger(todo.uidd)}
+                  />
+                  <span>{todo.todo}</span>
+                  <EditIcon
+                    fontSize="large"
+                    onClick={() => handleUpdate(todo)}
+                    className="edit-button"
+                  />
+                  <DeleteIcon
+                    fontSize="large"
+                    onClick={() => handleDelete(todo.uidd)}
+                    className="delete-button"
+                  />
+                </div>
+              </CSSTransition>
+            )
+          })}
+        </TransitionGroup>
+        <p style={{ textAlign: 'center', fontSize: '20px' }}>
+          версия <strong>1.0.0</strong>
+        </p>
       </div>
     </>
   )

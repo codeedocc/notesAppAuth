@@ -25,12 +25,13 @@
 
 .todo {
   margin-top: 20px;
-  top: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 15px;
+  height: 60px;
 }
+
 .todo > span {
   width: 900px;
   background-color: rgb(252, 251, 251);
@@ -39,8 +40,12 @@
   padding-right: 20px;
   padding-top: 4px;
   box-shadow: 0px 0px 5px #607d8b;
-  height: 100%;
   word-break: break-word;
+  align-items: center;
+  display: flex;
+  transition-property: all;
+  transition-duration: 0.5s;
+  height: 55px;
 }
 
 .todo.done > span {
@@ -53,10 +58,17 @@
   background: rgb(214, 205, 205);
   color: rgb(143, 142, 142);
   text-decoration: line-through;
+  height: 55px;
 }
+
 .add-confirm-icon {
   transform: scale(2);
   cursor: pointer;
+}
+
+.add-confirm-icon:hover {
+  cursor: pointer;
+  transform: scale(2.2);
 }
 
 .edit-button,
@@ -70,6 +82,39 @@
   cursor: pointer;
 }
 
-.logout-icon {
-  transform: scale(1.5);
+.edit-button:hover,
+.delete-button:hover {
+  cursor: pointer;
+  margin-left: 18px;
+  transform: scale(1.2);
+}
+
+.change-button:hover {
+  margin-right: 18px;
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.note-exit-active {
+  animation: note 500ms ease-out forwards;
+}
+
+.note-enter-active {
+  animation: note 500ms ease-in alternate-reverse;
+}
+
+@keyframes note {
+  0% {
+    transform: translateX(0);
+  }
+
+  30% {
+    opacity: 0.5;
+    transform: translateX(30px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-200px);
+  }
 }

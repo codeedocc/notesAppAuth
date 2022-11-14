@@ -29,7 +29,6 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 15px;
-  height: 60px;
 }
 
 .todo > span {
@@ -45,7 +44,6 @@
   display: flex;
   transition-property: all;
   transition-duration: 0.5s;
-  height: 55px;
 }
 
 .todo.done > span {
@@ -54,11 +52,16 @@
   font-size: 25px;
   padding-left: 20px;
   padding-right: 20px;
+  padding-top: 4px;
   box-shadow: 0px 0px 5px #607d8b;
+  word-break: break-word;
+  align-items: center;
+  display: flex;
+  transition-property: all;
+  transition-duration: 0.5s;
   background: rgb(214, 205, 205);
   color: rgb(143, 142, 142);
   text-decoration: line-through;
-  height: 55px;
 }
 
 .add-confirm-icon {

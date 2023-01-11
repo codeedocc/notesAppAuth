@@ -3,7 +3,7 @@ import { getDatabase } from 'firebase/database'
 import { getAuth } from 'firebase/auth'
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyBCHp9LBVDH93hd5ippgk7vLm3dzUKxr7Q',
+  apiKey: process.env.REACT_APP_SECRET_KEY,
   authDomain: 'todo-app-3eb70.firebaseapp.com',
   databaseURL:
     'https://todo-app-3eb70-default-rtdb.europe-west1.firebasedatabase.app',

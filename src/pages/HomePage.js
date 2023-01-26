@@ -198,33 +198,77 @@ export default function HomePage() {
               classes.push('done')
             }
 
-            return (
-              <CSSTransition key={todo.uidd} classNames={'note'} timeout={500}>
-                <div className={classes.join(' ')}>
-                  <DoneSharpIcon
-                    fontSize="large"
-                    className="change-button"
-                    onClick={() => handleChanger(todo.uidd)}
-                  />
-                  <span>{todo.todo}</span>
-                  <EditIcon
-                    fontSize="large"
-                    onClick={() => handleUpdate(todo)}
-                    className="edit-button"
-                  />
-                  <DeleteIcon
-                    fontSize="large"
-                    onClick={() => handleDelete(todo.uidd)}
-                    className="delete-button"
-                  />
-                </div>
-              </CSSTransition>
-            )
+            const word = todo.todo
+            const wordMiddle = word.match(/(https?:\/\/[^\s]+)/)
+
+            if (wordMiddle) {
+              return (
+                <CSSTransition
+                  key={todo.uidd}
+                  classNames={'note'}
+                  timeout={500}
+                >
+                  <div className={classes.join(' ')}>
+                    <DoneSharpIcon
+                      fontSize="large"
+                      className="change-button"
+                      onClick={() => handleChanger(todo.uidd)}
+                    />
+
+                    <a
+                      href={word.substring(
+                        wordMiddle.index,
+                        wordMiddle.index + wordMiddle[0].length
+                      )}
+                    >
+                      <span>{word}</span>
+                    </a>
+
+                    <EditIcon
+                      fontSize="large"
+                      onClick={() => handleUpdate(todo)}
+                      className="edit-button"
+                    />
+                    <DeleteIcon
+                      fontSize="large"
+                      onClick={() => handleDelete(todo.uidd)}
+                      className="delete-button"
+                    />
+                  </div>
+                </CSSTransition>
+              )
+            } else {
+              return (
+                <CSSTransition
+                  key={todo.uidd}
+                  classNames={'note'}
+                  timeout={500}
+                >
+                  <div className={classes.join(' ')}>
+                    <DoneSharpIcon
+                      fontSize="large"
+                      className="change-button"
+                      onClick={() => handleChanger(todo.uidd)}
+                    />
+
+                    <span>{word}</span>
+
+                    <EditIcon
+                      fontSize="large"
+                      onClick={() => handleUpdate(todo)}
+                      className="edit-button"
+                    />
+                    <DeleteIcon
+                      fontSize="large"
+                      onClick={() => handleDelete(todo.uidd)}
+                      className="delete-button"
+                    />
+                  </div>
+                </CSSTransition>
+              )
+            }
           })}
         </TransitionGroup>
-        <p style={{ textAlign: 'center', fontSize: '20px' }}>
-          версия <strong>1.0.0</strong>
-        </p>
       </div>
     </>
   )

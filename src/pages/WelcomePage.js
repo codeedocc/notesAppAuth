@@ -61,9 +61,9 @@ export default function WelcomePage() {
   }
 
   return (
-    <div className="welcome input-field">
+    <div className="welcome">
       <h1>Заметки</h1>
-      <div className="login-register-container">
+      <div className="login-register-container input-field">
         {isRegistering ? (
           <>
             <input

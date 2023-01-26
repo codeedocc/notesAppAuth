@@ -29,7 +29,7 @@ export const Navbar = () => {
           >
             Заметки
           </NavLink>
-          <ul className="right hide-on-med-and-down">
+          <ul className="right">
             <li>
               <NavLink to="/notesAppAuth/homepage" id="navL">
                 Список дел

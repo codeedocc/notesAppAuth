@@ -67,7 +67,7 @@ export default function HomePage() {
 
   // add
   const writeToDatabase = () => {
-    if (todo !== '') {
+    if (todo.trim() !== '') {
       const uidd = uid()
       set(ref(db, `/${auth.currentUser.uid}/${uidd}`), {
         todo: todo,
@@ -82,7 +82,7 @@ export default function HomePage() {
       } else {
         onAdd()
       }
-    } else if (todo === '') {
+    } else if (todo.trim() === '') {
       if (warningAlert) {
         return
       } else {
@@ -92,7 +92,7 @@ export default function HomePage() {
   }
 
   const writeToDatabaseKeyPress = (e) => {
-    if (e.key === 'Enter' && todo !== '' && !isEdit) {
+    if (e.key === 'Enter' && todo.trim() !== '' && !isEdit) {
       const uidd = uid()
       set(ref(db, `/${auth.currentUser.uid}/${uidd}`), {
         todo: todo,
@@ -106,11 +106,13 @@ export default function HomePage() {
       } else {
         onAdd()
       }
-    } else if (e.key === 'Enter' && todo === '') {
+    } else if (e.key === 'Enter' && todo.trim() === '') {
       if (warningAlert) {
+        setTodo('')
         return
       } else {
         onWarning()
+        setTodo('')
       }
     }
   }
@@ -121,16 +123,6 @@ export default function HomePage() {
     setIsEdit(true)
     setTodo(todo.todo)
     setTempUidd(todo.uidd)
-  }
-
-  const handleEditConfirm = () => {
-    update(ref(db, `/${auth.currentUser.uid}/${tempUidd}`), {
-      todo: todo,
-      tempUidd: tempUidd,
-    })
-
-    setTodo('')
-    setIsEdit(false)
   }
 
   // delete
@@ -146,7 +138,31 @@ export default function HomePage() {
     }
   }
 
-  // change
+  //confirm update
+  const handleEditConfirm = () => {
+    if (todo === '') {
+      remove(ref(db, `/${auth.currentUser.uid}/${tempUidd}`))
+      setTodo('')
+      setIsEdit(false)
+
+      if (removeAlert) {
+        return
+      } else {
+        onRemove()
+        return
+      }
+    }
+
+    update(ref(db, `/${auth.currentUser.uid}/${tempUidd}`), {
+      todo: todo,
+      tempUidd: tempUidd,
+    })
+
+    setTodo('')
+    setIsEdit(false)
+  }
+
+  // change to done
   const handleChanger = (uidd) => {
     update(ref(db, `/${auth.currentUser.uid}/${uidd}`), {
       completed: (todos.completed = !todos.completed),

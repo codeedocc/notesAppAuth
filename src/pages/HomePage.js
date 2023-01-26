@@ -140,7 +140,7 @@ export default function HomePage() {
 
   //confirm update
   const handleEditConfirm = () => {
-    if (todo === '') {
+    if (todo.trim() === '') {
       remove(ref(db, `/${auth.currentUser.uid}/${tempUidd}`))
       setTodo('')
       setIsEdit(false)

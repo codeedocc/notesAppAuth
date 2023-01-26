@@ -47,6 +47,11 @@
   font-weight: normal;
   color: white;
   border-radius: 50px;
+  transition: box-shadow 0.22s ease-in-out;
+}
+
+.sign-in-button:hover {
+  box-shadow: 0px 0px 7px #607d8b;
 }
 
 .register-button {
@@ -57,14 +62,29 @@
   font-weight: normal;
   color: white;
   border-radius: 50px;
+  transition: box-shadow 0.22s ease-in-out;
+}
+
+.register-button:hover {
+  box-shadow: 0px 0px 7px #607d8b;
 }
 
 .create-account-button {
   background: none;
   margin-top: 20px;
+  transition: scale 0.22s ease-in-out;
+}
+
+.create-account-button:hover {
+  scale: 1.2;
 }
 
 .back-account-button {
   background: none;
   margin-top: 20px;
+  transition: scale 0.22s ease-in-out;
+}
+
+.back-account-button:hover {
+  scale: 1.2;
 }

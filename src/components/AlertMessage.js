@@ -12,7 +12,6 @@ export const AlertMessage = ({ addAlert, removeAlert, warningAlert }) => {
           closable
           showIcon
           style={{ marginTop: '1rem' }}
-          className="alert-message"
         />
       )}
       {removeAlert && (
@@ -31,7 +30,6 @@ export const AlertMessage = ({ addAlert, removeAlert, warningAlert }) => {
           closable
           showIcon
           style={{ marginTop: '1rem' }}
-          className="alert-message"
         />
       )}
     </div>

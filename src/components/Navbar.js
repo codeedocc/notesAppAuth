@@ -30,12 +30,12 @@ export const Navbar = () => {
             Заметки
           </NavLink>
           <ul className="right">
-            <li>
+            <li className="hide-on-med-and-down">
               <NavLink to="/notesAppAuth/homepage" id="navL">
                 Список дел
               </NavLink>
             </li>
-            <li>
+            <li className="hide-on-med-and-down">
               <NavLink to="/notesAppAuth/homepage/about" id="navL">
                 Информация
               </NavLink>

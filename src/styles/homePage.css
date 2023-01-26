@@ -112,7 +112,8 @@
 }
 
 .logout-icon {
-  transform: scale(1.5);
+  transform: scale(1.8);
+  padding-top: 5px;
 }
 
 .add-confirm-icon:hover {
@@ -139,6 +140,24 @@
 
 .note-enter-active {
   animation: note 500ms ease-in alternate-reverse;
+}
+
+@media (max-width: 768px) {
+  .todo > span {
+    font-size: 12px;
+  }
+
+  .todo.done > span {
+    font-size: 12px;
+  }
+
+  .todo > a {
+    font-size: 12px;
+  }
+
+  .todo.done > a {
+    font-size: 12px;
+  }
 }
 
 @keyframes note {

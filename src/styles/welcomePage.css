@@ -88,3 +88,9 @@
 .back-account-button:hover {
   scale: 1.2;
 }
+
+@media (max-width: 768px) {
+  .login-register-container {
+    width: 300px;
+  }
+}
